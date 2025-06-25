@@ -9,7 +9,6 @@ using namespace std;
            Using the linear congruency formula. Pick a, b, and m such that it generates a truly random number sequence. Use a hash map.
 
 */
-
 bool isPrime(int num){
     //0, 1 and negative numbers are never prime.
     if (num <= 1){
@@ -24,17 +23,16 @@ bool isPrime(int num){
 }  
 
 unsigned short genRand(unsigned int Xseed = 1){
-    static unsigned int a = 31991;
-    static unsigned int b = 32587;
-    static unsigned int m = 65535;
+    //The real issue is that the integer size for a multiplied by rVal exceeds a numerical limit, and longs are the found fix.
+    static const long long a = 25173LL;
+    static const long long b = 13849LL;
+    static const long long m = 65536LL;
     static unsigned short rVal = Xseed % m;
     //Find values of a and b to get optimal values.
 
     rVal = (((a * rVal) % m + b) % m);
     return rVal;
 }
-
-
 
 int main(){
     int rNum = 65536;
@@ -52,10 +50,5 @@ int main(){
     cout << linArr[i] << endl;
    }
    cout << "Unique objects: " << u.size() << endl;
-   
-    
-
-
-
     return 0;
 }
