@@ -23,13 +23,11 @@ bool isPrime(int num){
 }  
 
 unsigned short genRand(unsigned int Xseed = 1){
-    //The real issue is that the integer size for a multiplied by rVal exceeds a numerical limit, and longs are the found fix.
-    static const long long a = 25173LL;
-    static const long long b = 13849LL;
-    static const long long m = 65536LL;
+    static unsigned int a = 5;
+    static unsigned int b = 1;
+    static unsigned int m = 65536;
     static unsigned short rVal = Xseed % m;
     //Find values of a and b to get optimal values.
-
     rVal = (((a * rVal) % m + b) % m);
     return rVal;
 }
