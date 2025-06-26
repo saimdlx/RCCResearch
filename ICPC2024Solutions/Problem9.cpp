@@ -7,6 +7,7 @@
     Input: Array/String of letters.
     Output: Calculate formulaic sum.
     To-do: Make letterDist faster via closed form solution.
+           Add single sum solution using partitioning.
 */
 
 using namespace std;
